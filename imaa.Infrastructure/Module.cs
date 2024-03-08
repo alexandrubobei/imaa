@@ -10,7 +10,7 @@ namespace imaa.Infrastructure;
 
 public static class Module
 {
-    public static void AddInfrastructure(this IServiceCollection services, string tokenKey)
+    public static void RegisterInfrastructureDependencies(this IServiceCollection services, string tokenKey)
     {
         services.AddTransient<IExampleRepo, ExampleRepo>();
         // services
@@ -21,17 +21,17 @@ public static class Module
         //     .AddRoleValidator<RoleValidator<ApplicationRole>>()
         //     .AddEntityFrameworkStores<BudgetManagerDbContext>();
 
-        services
-            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer
-            (
-                options => options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey)),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                }
-            );
+        // services
+        //     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //     .AddJwtBearer
+        //     (
+        //         options => options.TokenValidationParameters = new TokenValidationParameters
+        //         {
+        //             ValidateIssuerSigningKey = true,
+        //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey)),
+        //             ValidateIssuer = false,
+        //             ValidateAudience = false
+        //         }
+        //     );
     }
 }

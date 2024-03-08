@@ -24,6 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\imaa.Application\imaa.Application.csproj" />
+      <ProjectReference Include="..\imaa.Infrastructure\imaa.Infrastructure.csproj" />
       <ProjectReference Include="..\imaa.Persistence\imaa.Persistence.csproj" />
     </ItemGroup>
 
