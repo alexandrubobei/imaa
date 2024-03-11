@@ -1,8 +1,10 @@
 using imaa.API.ExceptionHandler;
 using imaa.API.Routes;
 using imaa.Application;
+using imaa.Application.Example.Commands;
 using imaa.Infrastructure;
 using imaa.Persistence;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
