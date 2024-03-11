@@ -1,3 +1,4 @@
+using imaa.API.ExceptionHandler;
 using imaa.API.Routes;
 using imaa.Application;
 using imaa.Infrastructure;
@@ -14,6 +15,10 @@ builder.Services.RegisterInfrastructureDependencies("");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddExceptionHandler<GeneralExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -26,6 +31,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler();
 
 // Route configuration
 app.ConfigureWeatherRoutes();
