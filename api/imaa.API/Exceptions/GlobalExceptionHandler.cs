@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace imaa.API.ExceptionHandler
+namespace imaa.API.Exceptions
 {
     public class GlobalExceptionHandler : IExceptionHandler
     {

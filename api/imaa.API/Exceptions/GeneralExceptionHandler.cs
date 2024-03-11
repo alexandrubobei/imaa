@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
-namespace imaa.API.ExceptionHandler
+namespace imaa.API.Exceptions
 {
     public class GeneralExceptionHandler : IExceptionHandler
     {
@@ -14,7 +14,7 @@ namespace imaa.API.ExceptionHandler
         }
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
-            _logger.LogError($"An error occurred while processing your request: {exception.Message}");
+            _logger.LogError("An error occurred while processing your request: {ExceptionMessage}", exception.Message);
 
             var problemDetails = new ProblemDetails
             {
