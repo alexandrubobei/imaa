@@ -25,5 +25,17 @@ public static class WeatherRoutes
             .WithName("ProcessData")
             .WithOpenApi();
 
+        app.MapGet("/testBadRequestException", async (HttpResponse response, HttpContext context) =>
+        {
+            throw new BadHttpRequestException("");
+        })
+        .WithName("testBadRequestException");
+
+        app.MapGet("/testUnauthorizedException", async (HttpResponse response, HttpContext context) =>
+        {
+            throw new UnauthorizedAccessException();
+        })
+        .WithName("testUnauthorizedException");
+
     }
 }
