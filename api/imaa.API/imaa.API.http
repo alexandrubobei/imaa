@@ -7,3 +7,11 @@ Accept: application/json
 
 POST {{imaa.API_HostAddress}}/processdata
 ###
+
+GET {{imaa.API_HostAddress}}/TestBadRequestException
+
+###
+
+GET {{imaa.API_HostAddress}}/TestUnauthorizedException
+
+###

@@ -7,12 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\imaa.Domain\imaa.Domain.csproj" />
+      <Compile Remove="Example\Profiles\**" />
+      <Compile Remove="Example\Queries\**" />
+      <EmbeddedResource Remove="Example\Profiles\**" />
+      <EmbeddedResource Remove="Example\Queries\**" />
+      <None Remove="Example\Profiles\**" />
+      <None Remove="Example\Queries\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Example\Profiles\" />
-      <Folder Include="Example\Queries\" />
+      <ProjectReference Include="..\imaa.Domain\imaa.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
