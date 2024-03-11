@@ -1,6 +1,7 @@
 using System.Text.Json;
 using imaa.Application.Example.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace imaa.API.Routes;
 class Todo
@@ -37,30 +38,13 @@ public static class WeatherRoutes
             return Results.Created("/todoitems/1", todo);
         });
 
-        app.MapPost("/processdata", async (HttpResponse response, HttpContext context) =>
+        app.MapPost("/processdata", async (HttpResponse response, HttpContext context, object todo) =>
             {
-                using var reader = new StreamReader(context.Request.Body);
-                var body = await reader.ReadToEndAsync();
-                var data = JsonSerializer.Deserialize<ExampleCommand>(body, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-
-                if (data != null)
-                {
-                    var mediator = context.RequestServices.GetRequiredService<IMediator>();
-
-                    await mediator.Send(new ExampleCommand());
-                    await context.Response.WriteAsync("Data processed successfully.");
-                }
-                else
-                {
-                    context.Response.StatusCode = 400; // Bad Request
-                    await context.Response.WriteAsync("Invalid data received in the request body.");
-                }
+                return Results.Created($"/asd/{1}", todo);
             })
             .WithName("ProcessData")
             .WithDisplayName("ProcessData")
             .WithOpenApi();
+
     }
 }
