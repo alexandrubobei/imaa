@@ -9,21 +9,33 @@ public static class WeatherRoutes
 {
     public static void ConfigureWeatherRoutes(this WebApplication app)
     {
-        app.MapGet("/weatherforecast", async (HttpResponse response, HttpContext context) =>
+        app.MapGet("/weatherForecast", async (HttpResponse response, HttpContext context) =>
         {
             var mediator = context.RequestServices.GetRequiredService<IMediator>();
             var command = new ExampleCommand();
             var forecast = await mediator.Send(command);
             await context.Response.WriteAsJsonAsync(forecast);
         })
-        .WithName("GetWeatherForecast");
+        .WithName("weatherForecast");
 
-        app.MapPost("/processdata", async (HttpResponse response, HttpContext context, object todo) =>
+        app.MapPost("/processData", async (HttpResponse response, HttpContext context, object todo) =>
             {
                 return Results.Created($"/asd/{1}", todo);
             })
-            .WithName("ProcessData")
+            .WithName("processData")
             .WithOpenApi();
+
+        app.MapGet("/testBadRequestException", async (HttpResponse response, HttpContext context) =>
+        {
+            throw new BadHttpRequestException("");
+        })
+        .WithName("testBadRequestException");
+
+        app.MapGet("/testUnauthorizedException", async (HttpResponse response, HttpContext context) =>
+        {
+            throw new UnauthorizedAccessException();
+        })
+        .WithName("testUnauthorizedException");
 
     }
 }
