@@ -10,6 +10,8 @@ trigger:
   paths:
     include:
       - api/*
+    exclude:
+      - client/*
 pr:
 - main
 - releases/*
