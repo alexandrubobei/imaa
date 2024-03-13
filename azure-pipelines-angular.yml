@@ -12,10 +12,11 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '21.x'
   displayName: 'Install Node.js'
 
 - script: |
+    cd client/imma-client
     npm install -g @angular/cli
     npm install
     ng build --prod
