@@ -1,0 +1,41 @@
+.header {
+  background-color: #054e5a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+
+  .left-menu {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .main-logo {
+      margin-right: 50px;
+    }
+
+    .menu-links {
+      a {
+        color: #ced9d7;
+        text-decoration: none;
+        padding: 11px 23.5px 12px;
+      }
+      a:hover {
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  .right-menu {
+    color: #fff;
+    margin-right: 44px;
+
+    .menu-icon {
+      margin-right: 32px;
+    }
+  }
+}

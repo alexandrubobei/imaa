@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './workflow-page.component.html',
-  styleUrl: './workflow-page.component.scss'
+  styleUrl: './workflow-page.component.scss',
 })
-export class WorkflowPageComponent {
-
-}
+export class WorkflowPageComponent {}
