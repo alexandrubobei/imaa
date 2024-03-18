@@ -2,7 +2,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./modules/workflow/workflow.module').then(m => m.WorkflowModule)
-  }
-]
+    path: 'workflow',
+    loadChildren: () =>
+      import('../app/modules/workflow/workflow.routes').then(
+        (m) => m.WORKFLOW_ROUTES
+      ),
+  },
+];
