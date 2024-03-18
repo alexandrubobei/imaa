@@ -1,26 +1,33 @@
-<div class="sidebar">
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="grid_view"
-    class="sidebar-icon"
-  ></mat-icon>
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="monitoring"
-    class="sidebar-icon"
-  ></mat-icon>
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="settings"
-    class="sidebar-icon"
-  ></mat-icon>
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="verified"
-    class="sidebar-icon"
-  ></mat-icon>
-</div>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div class="sidebar">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="grid_view"
+        class="sidebar-icon"
+      ></mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="monitoring"
+        class="sidebar-icon"
+      ></mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="settings"
+        class="sidebar-icon"
+      ></mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="verified"
+        class="sidebar-icon"
+      ></mat-icon>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
