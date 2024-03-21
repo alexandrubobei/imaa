@@ -1,5 +1,6 @@
 using System.Text;
 using imaa.Domain.Repositories;
+using imaa.Domain.Repositories.Imports;
 using imaa.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -13,6 +14,7 @@ public static class Module
     public static void RegisterInfrastructureDependencies(this IServiceCollection services, string tokenKey)
     {
         services.AddTransient<IExampleRepo, ExampleRepo>();
+        services.AddTransient<IExcelImportRepository, ExcelImportRepository>();
         // services
         //     .AddIdentityCore<ApplicationUser>(options => options.Password.RequireNonAlphanumeric = false)
         //     .AddRoles<ApplicationRole>()

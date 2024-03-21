@@ -17,6 +17,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddExceptionHandler<GeneralExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+
 // Platform dependencies
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -45,5 +46,6 @@ app.UseExceptionHandler();
 
 // Route configuration
 app.ConfigureWeatherRoutes();
+app.ConfigureImportRoutes();
 
 app.Run();
