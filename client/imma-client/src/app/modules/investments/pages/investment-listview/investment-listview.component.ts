@@ -21,23 +21,23 @@ export class InvestmentListviewComponent {
 
   public displayedColumns: string[] = [
     'select',
-    'RequestName',
-    'OpEntity',
-    'AdminDivision',
-    'BusinessArea',
-    'ApprovingDiv',
-    'EndorsingDiv',
-    'Requester',
+    'requestName',
+    'opEntity',
+    'adminDivision',
+    'businessArea',
+    'approvingDiv',
+    'endorsingDiv',
+    'requester',
   ];
-  dataSource = new MatTableDataSource<ListViewTableHeader>();
-  selection = new SelectionModel<ListViewTableHeader>(true, []);
+  public dataSource = new MatTableDataSource<ListViewTableHeader>();
+  public selection = new SelectionModel<ListViewTableHeader>(true, []);
 
   constructor(
     private _investmentService: InvestmentsService,
     private _liveAnnouncer: LiveAnnouncer
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._investmentService.getViewListData().subscribe((data) => {
       this.dataSource.data = data;
     });
@@ -47,18 +47,18 @@ export class InvestmentListviewComponent {
     return this.displayedColumns.filter((column) => column !== 'select');
   }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort!;
   }
 
-  isAllSelected() {
+  public isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
-  toggleAllRows() {
+  public toggleAllRows() {
     if (this.isAllSelected()) {
       this.selection.clear();
       return;
@@ -67,12 +67,12 @@ export class InvestmentListviewComponent {
     this.selection.select(...this.dataSource.data);
   }
 
-  checkboxLabel(row?: ListViewTableHeader): string {
+  public checkboxLabel(row?: ListViewTableHeader): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.OpEntity + 1
+      row.opEntity + 1
     }`;
   }
 }
