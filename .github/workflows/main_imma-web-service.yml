@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'imma-web-service'
           slot-name: 'Production'
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: .
           
