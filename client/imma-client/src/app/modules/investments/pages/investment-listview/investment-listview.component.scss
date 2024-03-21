@@ -1,0 +1,28 @@
+.top-page {
+  margin: 24px 24px 0px 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .sort-area * {
+    margin-right: 20px;
+  }
+}
+
+.table-container {
+  margin: 24px;
+
+  .table-header {
+    background-color: #054e5a;
+    color: #fff;
+  }
+
+  .table-footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+  }
+}
