@@ -1,23 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/header/header.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
-import { AppImportsModule } from './app-imports.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    HeaderComponent,
-    SidebarComponent,
-  ],
+  imports: [CommonModule, HeaderComponent, SidebarComponent],
 })
 export class AppComponent {
   title = 'imma-client';

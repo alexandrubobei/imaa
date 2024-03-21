@@ -8,4 +8,11 @@ export const routes: Routes = [
         (m) => m.WORKFLOW_ROUTES
       ),
   },
+  {
+    path: 'investment',
+    loadChildren: () =>
+      import('../app/modules/investments/investments.routes').then(
+        (m) => m.INVESTMENT_ROUTES
+      ),
+  },
 ];
