@@ -44,9 +44,9 @@
             <div class="col-md-6">
               <mat-form-field>
                 <mat-label>Approving Division</mat-label>
-                <select matNativeControl required>
-                  <option value="volvo">Admin Division</option>
-                </select>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">Admin Division</mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
             <div class="col-md-6">

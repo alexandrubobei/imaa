@@ -8,4 +8,6 @@ import { AppImportsModule } from '../../../../app-imports.module';
   templateUrl: './investment-detail.component.html',
   styleUrl: './investment-detail.component.scss',
 })
-export class InvestmentDetailComponent {}
+export class InvestmentDetailComponent {
+  selected = 'volvo';
+}
