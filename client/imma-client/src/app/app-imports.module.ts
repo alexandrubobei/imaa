@@ -10,8 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
 
 const modules = [
   CommonModule,
@@ -33,6 +37,15 @@ const modules = [
   MatSelectModule,
   MatFormFieldModule,
   MatGridListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatMenuModule,
+  MatExpansionModule,
+  MatFormField,
+  MatFormFieldModule,
+  MatInputModule,
 ];
 
 @NgModule({

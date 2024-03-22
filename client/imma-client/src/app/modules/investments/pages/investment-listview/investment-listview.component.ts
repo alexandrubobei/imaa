@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { InvestmentsService } from '../../services/investments.service';
 import { ListViewTableHeader } from '../../models/listview-model';
 import { AppImportsModule } from '../../../../app-imports.module';
@@ -7,6 +7,9 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatSort, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-investment-listview',
@@ -19,6 +22,8 @@ export class InvestmentListviewComponent {
   @ViewChild(MatSort) sort: MatSort | null = null;
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
+  tableColumns = new FormControl('');
+
   public displayedColumns: string[] = [
     'select',
     'requestName',
@@ -29,10 +34,26 @@ export class InvestmentListviewComponent {
     'endorsingDiv',
     'requester',
   ];
+
+  // Define a map of column keys to their display names
+  public columnDisplayNameMap: { [key: string]: string } = {
+    select: 'Selection',
+    requestName: 'Request Name',
+    opEntity: 'Operation Entity',
+    adminDivision: 'Admin Division',
+    businessArea: 'Business Area',
+    approvingDiv: 'Approving Division',
+    endorsingDiv: 'Endorsing Division',
+    requester: 'Requester',
+  };
+
+  public checkboxColumns: any[] = [];
+
   public dataSource = new MatTableDataSource<ListViewTableHeader>();
   public selection = new SelectionModel<ListViewTableHeader>(true, []);
-
+  public color = 'primary';
   constructor(
+    private _router: Router,
     private _investmentService: InvestmentsService,
     private _liveAnnouncer: LiveAnnouncer
   ) {}
@@ -41,6 +62,20 @@ export class InvestmentListviewComponent {
     this._investmentService.getViewListData().subscribe((data) => {
       this.dataSource.data = data;
     });
+
+    this.checkboxColumns = this.displayedColumns.map((column) => ({
+      key: column,
+      title: this.columnDisplayNameMap[column],
+      activated: true, // Set to true to show all columns initially
+    }));
+
+    this.updateDisplayedColumns();
+  }
+
+  updateDisplayedColumns() {
+    this.displayedColumns = this.checkboxColumns
+      .filter((column) => column.activated)
+      .map((column) => column.key);
   }
 
   get dynamicColumns() {
@@ -74,5 +109,23 @@ export class InvestmentListviewComponent {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
       row.opEntity + 1
     }`;
+  }
+
+  public onCheckboxChange(event: MatCheckboxChange, row: any): void {
+    this.selection.toggle(row);
+
+    const rowElement = event.source._elementRef.nativeElement.closest('tr');
+
+    if (event.checked) {
+      rowElement?.classList.add('selected-row');
+    } else {
+      rowElement?.classList.remove('selected-row');
+    }
+
+    this.selection.toggle(row);
+  }
+
+  public onRowClicked(row: any) {
+    this._router.navigate(['/investment/detail']);
   }
 }

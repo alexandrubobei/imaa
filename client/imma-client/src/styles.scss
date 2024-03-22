@@ -102,7 +102,8 @@ $imma-client-theme: mat.define-light-theme(
 
 @font-face {
   font-family: "NotoSans-SemiBoldItalic";
-  src: url("assets/fonts//NotoSans/NotoSans-SemiBoldItalic.ttf") format("truetype");
+  src: url("assets/fonts//NotoSans/NotoSans-SemiBoldItalic.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: normal;
 }
@@ -150,4 +151,26 @@ body {
   --h1: 33px;
   --h2: 27px;
   --h3: 22px;
+}
+
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control[data-indeterminate="true"]:enabled
+  ~ .mdc-checkbox__background {
+  border-color: #054e5a !important;
+  background-color: #054e5a !important;
+}
+
+/* Ensure the mat-select panel (dropdown) retains its default full size */
+.cdk-overlay-pane {
+  width: 215px !important; /* Or specify a width if necessary */
+}
+
+.mat-expansion-indicator::after {
+  color: #fff !important;
 }
