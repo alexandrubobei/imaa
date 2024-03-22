@@ -28,23 +28,23 @@ export class InvestmentListviewComponent {
     'select',
     'requestName',
     'opEntity',
-    'adminDivision',
-    'businessArea',
     'approvingDiv',
-    'endorsingDiv',
-    'requester',
+    'businessArea',
+    'approvingStatus',
+    'finalAppDate',
+    'curency',
   ];
 
   // Define a map of column keys to their display names
   public columnDisplayNameMap: { [key: string]: string } = {
     select: 'Selection',
     requestName: 'Request Name',
-    opEntity: 'Operation Entity',
-    adminDivision: 'Admin Division',
-    businessArea: 'Business Area',
-    approvingDiv: 'Approving Division',
-    endorsingDiv: 'Endorsing Division',
-    requester: 'Requester',
+    opEntity: 'Operational Entity',
+    approvingDiv: 'Approval Div.',
+    businessArea: 'App. Business Area',
+    approvingStatus: 'Approval Status',
+    finalAppDate: 'Final App. Date',
+    curency: 'Curency',
   };
 
   public checkboxColumns: any[] = [];
