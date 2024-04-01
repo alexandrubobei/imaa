@@ -17,6 +17,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddExceptionHandler<GeneralExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+
 // Platform dependencies
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpsRedirection(options => { options.HttpsPort = 443; });
@@ -47,5 +48,6 @@ app.UseExceptionHandler();
 
 // Route configuration
 app.ConfigureWeatherRoutes();
+app.ConfigureImportRoutes();
 
 app.Run();
