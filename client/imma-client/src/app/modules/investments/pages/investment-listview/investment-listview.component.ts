@@ -22,10 +22,7 @@ export class InvestmentListviewComponent {
   @ViewChild(MatSort) sort: MatSort | null = null;
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
-  tableColumns = new FormControl('');
-
   public displayedColumns: string[] = [
-    'select',
     'requestName',
     'opEntity',
     'approvingDiv',
@@ -35,11 +32,9 @@ export class InvestmentListviewComponent {
     'curency',
   ];
 
-  // Define a map of column keys to their display names
   public columnDisplayNameMap: { [key: string]: string } = {
-    select: 'Selection',
     requestName: 'Request Name',
-    opEntity: 'Operational Entity',
+    opEntity: 'Op. Entity',
     approvingDiv: 'Approval Div.',
     businessArea: 'App. Business Area',
     approvingStatus: 'Approval Status',
@@ -50,12 +45,9 @@ export class InvestmentListviewComponent {
   public checkboxColumns: any[] = [];
 
   public dataSource = new MatTableDataSource<ListViewTableHeader>();
-  public selection = new SelectionModel<ListViewTableHeader>(true, []);
-  public color = 'primary';
   constructor(
     private _router: Router,
-    private _investmentService: InvestmentsService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _investmentService: InvestmentsService
   ) {}
 
   public ngOnInit(): void {
@@ -66,7 +58,7 @@ export class InvestmentListviewComponent {
     this.checkboxColumns = this.displayedColumns.map((column) => ({
       key: column,
       title: this.columnDisplayNameMap[column],
-      activated: true, // Set to true to show all columns initially
+      activated: true,
     }));
 
     this.updateDisplayedColumns();
@@ -85,44 +77,6 @@ export class InvestmentListviewComponent {
   public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort!;
-  }
-
-  public isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  public toggleAllRows() {
-    if (this.isAllSelected()) {
-      this.selection.clear();
-      return;
-    }
-
-    this.selection.select(...this.dataSource.data);
-  }
-
-  public checkboxLabel(row?: ListViewTableHeader): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.opEntity + 1
-    }`;
-  }
-
-  public onCheckboxChange(event: MatCheckboxChange, row: any): void {
-    this.selection.toggle(row);
-
-    const rowElement = event.source._elementRef.nativeElement.closest('tr');
-
-    if (event.checked) {
-      rowElement?.classList.add('selected-row');
-    } else {
-      rowElement?.classList.remove('selected-row');
-    }
-
-    this.selection.toggle(row);
   }
 
   public onRowClicked(row: any) {

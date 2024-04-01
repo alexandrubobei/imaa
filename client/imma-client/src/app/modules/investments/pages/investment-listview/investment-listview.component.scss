@@ -1,12 +1,4 @@
-.top-page {
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
-  // align-items: center;
-
-  margin-top: 24px;
-  margin-bottom: 24px;
-
+.custom-container {
   .sort-area * {
     margin-right: 20px;
   }
@@ -78,73 +70,78 @@
       text-align: center;
     }
   }
-}
 
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-
-  width: 1860px;
-  max-width: 100%;
-  overflow: auto;
-
-  table {
+  .table-container {
     width: 100%;
-    border-collapse: collapse;
-    width: 800px;
-  }
+    overflow-x: auto;
 
-  td,
-  th {
-    border-right: 1px solid #5d7875;
-  }
+    width: 1860px;
+    max-width: 100%;
+    overflow: auto;
 
-  td:last-child,
-  th:last-child {
-    border-right: 0;
-  }
-
-  .table-header {
-    background-color: #054e5a;
-    color: #fff;
-  }
-
-  .table-row {
-    font-size: 14px;
-    font-weight: bold;
-    color: #5d7875;
-  }
-
-  .even-row {
-    background-color: white;
-  }
-
-  .odd-row {
-    background-color: #f0f3f3;
-  }
-
-  .selected-row {
-    background-color: #fff0db;
-  }
-
-  .table-footer-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-
-    a {
-      color: #5d7875;
-      box-shadow: none;
-      border: solid 1px #5d7875;
-      border-radius: 3px;
+    .link-style {
+      text-decoration: underline;
+      color: inherit;
     }
 
-    .custom-paginator {
-      color: #5d7875 !important;
-      font-weight: bold !important;
-      font-size: 12px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      width: 800px;
+    }
+
+    td,
+    th {
+      border-right: 1px solid #5d7875;
+    }
+
+    td:last-child,
+    th:last-child {
+      border-right: 0;
+    }
+
+    .table-header {
+      background-color: #054e5a;
+      color: #fff;
+    }
+
+    .table-row {
+      font-size: 14px;
+      font-weight: bold;
+      color: #5d7875;
+    }
+
+    .even-row {
+      background-color: white;
+    }
+
+    .odd-row {
+      background-color: #f0f3f3;
+    }
+
+    .selected-row {
+      background-color: #fff0db;
+    }
+
+    .table-footer-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+
+      a {
+        color: #5d7875;
+        box-shadow: none;
+        border: solid 1px #5d7875;
+        border-radius: 3px;
+      }
+
+      .custom-paginator {
+        color: #5d7875 !important;
+        font-weight: bold !important;
+        font-size: 12px;
+      }
     }
   }
 }

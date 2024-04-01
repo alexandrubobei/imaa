@@ -112,7 +112,6 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 body {
   margin: 0;
@@ -151,6 +150,10 @@ body {
   --h1: 33px;
   --h2: 27px;
   --h3: 22px;
+}
+
+.container {
+  margin: 24px;
 }
 
 .mdc-checkbox
