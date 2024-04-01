@@ -1,0 +1,482 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="top-page">
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Investment Detail</h2>
+        </div>
+
+        <div class="col-md-8">
+          <div class="sort-area">
+            <button type="button" class="custom-button">Create New</button>
+            <button type="button" class="custom-button">
+              Upload from .XLS File
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <mat-accordion class="mat-accordion-custom">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Request Information </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Request Name</mat-label>
+                <input matInput value="Nexus Investment" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Operational Entity</mat-label>
+                <input matInput value="NovaFound Management" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Approving Division</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">Admin Division</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Approving BA</mat-label>
+                <input matInput value="Approving BA" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Endorsing Division</mat-label>
+                <select matNativeControl required>
+                  <option value="volvo">Endorsing Division</option>
+                </select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Endorsing BA</mat-label>
+                <input matInput value="Endorsing BA" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Requester</mat-label>
+                <input matInput value="Zoe Sullivan" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Project Lead / Proposed By</mat-label>
+                <input matInput value="Madison Wright" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <select matNativeControl required>
+                  <option value="volvo">Germany (DE)</option>
+                </select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Curency</mat-label>
+                <select matNativeControl required>
+                  <option value="volvo">EUR</option>
+                </select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Rate</mat-label>
+                <input matInput value="2.3" />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Dates & Watch List </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Date of Business Board</mat-label>
+                <input matInput value="mm/dd/yyyy" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Date of ECM</mat-label>
+                <input matInput value="mm/dd/yyyy" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Date of Board Meeting</mat-label>
+                <input matInput value="mm/dd/yyyy" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Final Approval Date</mat-label>
+                <input matInput value="mm/dd/yyyy" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Created Date</mat-label>
+                <input matInput value="mm/dd/yyyy" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Confidential</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">YES</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field>
+              <mat-label>Watchlist</mat-label>
+              <div class="row">
+                <div class="col-md-6">
+                  <button
+                    mat-fab
+                    extended
+                    color="secondary"
+                    class="custom-button"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    Sofia Andreou
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button
+                    mat-fab
+                    extended
+                    color="secondary"
+                    class="custom-button"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    Anna Varga
+                  </button>
+                </div>
+              </div>
+              <mat-select [(value)]="selected">
+                <mat-option value="volvo">Add new...</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field>
+              <mat-label>Notification on Approval List</mat-label>
+              <div class="row">
+                <div class="col-md-6">
+                  <button
+                    mat-fab
+                    extended
+                    color="secondary"
+                    class="custom-button"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    Sofia Andreou
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button
+                    mat-fab
+                    extended
+                    color="secondary"
+                    class="custom-button"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    Anna Varga
+                  </button>
+                </div>
+              </div>
+
+              <mat-select [(value)]="selected">
+                <mat-option value="volvo">Add new...</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col-md-4">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Investment Summary </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Present Situation</mat-label>
+                <input matInput value="In Preparation" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Proposed Solution</mat-label>
+                <input matInput value="Reviewers Meeting" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Project Start</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">03/28/2026</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Expenditure Completed</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">Choose a date</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Full Benefit Achived</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">03/28/2026</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Capex Specification Summary </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>SEK (Local Currency)</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>EUR</mat-label>
+                <mat-select>
+                  <mat-option value="volvo">EUR</mat-option>
+                  <mat-option value="volvo">USD</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Premises</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Premises</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Machinery & Tech Assets</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Machinery & Tech Assets</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Other Equipment & Installations</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Other Equipment & Installations</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Financial & Intangible Assets</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Financial & Intangible Assets</mat-label>
+                <input matInput value="000" />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col-md-4">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Investement Identification </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Investment Number</mat-label>
+                <input matInput value="User Input" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Investment Number</mat-label>
+                <input matInput value="User Input" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Asset Number</mat-label>
+                <input matInput value="User Input" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Leave a Comment</mat-label>
+                <textarea matInput value="Leave a comment here..."></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="mat-accordion-header">
+            <mat-panel-title> Follow-Up </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row first">
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Follow-Up Applicable</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">YES</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Follow-Up Date</mat-label>
+                <input matInput value="04/25/2024" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Follow-Up Responsible</mat-label>
+                <input matInput value="alejandro.fernandez@atlascopco.com" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Follow-Up Status</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="volvo">Pending</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Actual Cost</mat-label>
+                <input matInput value="0,000" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Actual Pay Back</mat-label>
+                <input matInput value="0,000" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Follow Up Analysis</mat-label>
+                <textarea matInput value="Analysis here..."></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="custom-form-field">
+                <mat-label>Leave a Comment</mat-label>
+                <textarea matInput value="Leave a comment here..."></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

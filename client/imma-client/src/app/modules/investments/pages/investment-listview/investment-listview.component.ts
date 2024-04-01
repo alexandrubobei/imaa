@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { InvestmentsService } from '../../services/investments.service';
 import { ListViewTableHeader } from '../../models/listview-model';
 import { AppImportsModule } from '../../../../app-imports.module';
@@ -7,6 +7,9 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatSort, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-investment-listview',
@@ -20,27 +23,51 @@ export class InvestmentListviewComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   public displayedColumns: string[] = [
-    'select',
     'requestName',
     'opEntity',
-    'adminDivision',
-    'businessArea',
     'approvingDiv',
-    'endorsingDiv',
-    'requester',
+    'businessArea',
+    'approvingStatus',
+    'finalAppDate',
+    'curency',
   ];
-  public dataSource = new MatTableDataSource<ListViewTableHeader>();
-  public selection = new SelectionModel<ListViewTableHeader>(true, []);
 
+  public columnDisplayNameMap: { [key: string]: string } = {
+    requestName: 'Request Name',
+    opEntity: 'Op. Entity',
+    approvingDiv: 'Approval Div.',
+    businessArea: 'App. Business Area',
+    approvingStatus: 'Approval Status',
+    finalAppDate: 'Final App. Date',
+    curency: 'Curency',
+  };
+
+  public checkboxColumns: any[] = [];
+
+  public dataSource = new MatTableDataSource<ListViewTableHeader>();
   constructor(
-    private _investmentService: InvestmentsService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _router: Router,
+    private _investmentService: InvestmentsService
   ) {}
 
   public ngOnInit(): void {
     this._investmentService.getViewListData().subscribe((data) => {
       this.dataSource.data = data;
     });
+
+    this.checkboxColumns = this.displayedColumns.map((column) => ({
+      key: column,
+      title: this.columnDisplayNameMap[column],
+      activated: true,
+    }));
+
+    this.updateDisplayedColumns();
+  }
+
+  updateDisplayedColumns() {
+    this.displayedColumns = this.checkboxColumns
+      .filter((column) => column.activated)
+      .map((column) => column.key);
   }
 
   get dynamicColumns() {
@@ -52,27 +79,7 @@ export class InvestmentListviewComponent {
     this.dataSource.sort = this.sort!;
   }
 
-  public isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  public toggleAllRows() {
-    if (this.isAllSelected()) {
-      this.selection.clear();
-      return;
-    }
-
-    this.selection.select(...this.dataSource.data);
-  }
-
-  public checkboxLabel(row?: ListViewTableHeader): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.opEntity + 1
-    }`;
+  public onRowClicked(row: any) {
+    this._router.navigate(['/investment/detail']);
   }
 }
