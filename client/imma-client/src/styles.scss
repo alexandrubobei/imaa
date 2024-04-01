@@ -37,16 +37,117 @@ $imma-client-theme: mat.define-light-theme(
 @include mat.all-component-themes($imma-client-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "NotoSans-Bold";
+  src: url("assets/fonts//NotoSans/NotoSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSans-BoldItalic";
+  src: url("assets/fonts/NotoSans/NotoSans-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NotoSans-Italic";
+  src: url("assets/fonts/NotoSans/NotoSans-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NotoSans-Light";
+  src: url("assets/fonts/NotoSans/NotoSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSans-LightItalic";
+  src: url("assets/fonts/NotoSans/NotoSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NotoSans-Medium";
+  src: url("assets/fonts/NotoSans/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSans-MediumItalic";
+  src: url("assets/fonts/NotoSans/NotoSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NotoSans-Regular";
+  src: url("assets/fonts/NotoSans/NotoSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSans-SemiBold";
+  src: url("assets/fonts//NotoSans/NotoSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSans-SemiBoldItalic";
+  src: url("assets/fonts//NotoSans/NotoSans-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
 html,
 body {
+  width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "NotoSans-Regular";
 }
 
 * {
   margin: 0;
   padding: 0;
+
+  --teal: #034e59; // original code color = #054E5A
+  --white: #ffffff; // text, excell rows
+  --gray: #a1a9b4;
+  --gold: #e1b77e;
+
+  --accent-green: #5d7875;
+  --accent-light-green: #ced9d7;
+  --accent-blue: #123f6d;
+
+  --soft-peach: #f68363;
+  --brick-red: #c03627;
+  --grape-purple: #9e1f63;
+  --grass-green: #4c9f70;
+  --sky-blue: #add9f4;
+
+  --black: #000000; // text
+
+  --light-gray: #f0f3f3; // excell rows
+  --excell-lines-gray: #a0a9b4;
+  --silver-gray: #5c7875; // border buttons, arrows from excell
+  --light-orange: #fff0db; // selected project
+
+  // from zeplin
+  --p: 19px;
+  --menu: 17px;
+  --h1: 33px;
+  --h2: 27px;
+  --h3: 22px;
 }

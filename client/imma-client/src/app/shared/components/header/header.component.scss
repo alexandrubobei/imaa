@@ -1,5 +1,5 @@
 .header {
-  background-color: #054e5a;
+  background-color: var(--teal);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,7 +19,7 @@
 
     .menu-links {
       a {
-        color: #ced9d7;
+        color: var(--accent-light-green);
         text-decoration: none;
         padding: 11px 23.5px 12px;
       }
@@ -31,7 +31,7 @@
   }
 
   .right-menu {
-    color: #fff;
+    color: var(--white);
     margin-right: 44px;
 
     .menu-icon {

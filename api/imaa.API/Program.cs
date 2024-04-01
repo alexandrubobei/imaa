@@ -20,6 +20,7 @@ builder.Services.AddProblemDetails();
 
 // Platform dependencies
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpsRedirection(options => { options.HttpsPort = 443; });
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = $"{builder.Environment.ApplicationName} v1", Version = "v1" });
@@ -42,6 +43,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseExceptionHandler();
 
 // Route configuration
