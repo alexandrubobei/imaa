@@ -1,4 +1,12 @@
 .custom-container {
+  overflow: hidden;
+
+  .page-title {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 20px;
+  }
+
   .sort-area * {
     margin-right: 20px;
   }
@@ -8,6 +16,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: right;
+    margin-top: 24px;
+    margin-bottom: 24px;
 
     .menu-select {
       margin-left: 30px;
@@ -74,10 +84,9 @@
   .table-container {
     width: 100%;
     overflow-x: auto;
-
-    width: 1860px;
-    max-width: 100%;
     overflow: auto;
+    padding-left: 24px;
+    padding-right: 24px;
 
     .link-style {
       text-decoration: underline;
